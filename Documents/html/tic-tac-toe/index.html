@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style>
+table, td {
+    border: 1px solid red;
+}
+table {
+    width: 300px;
+    height: 300px;
+}
+td {
+    background-position: center;
+    background-color: #D2B48C;
+}
+ </style>
+ <script src="/socket.io/socket.io.js"></script>
+ <script src="client.js"></script>
+ <script>
+
+     function myFunction() {
+        var c = new Client();
+        c.initialize();
+        var j;
+        var x = document.getElementsByTagName('td');
+        for (j = 0; j < 9; j++) {
+           x[j].id = j;
+           x[j].addEventListener("click", function(){
+              c.click(this);
+           });
+        }
+     }
+
+ </script>
+</head>
+<body onload = myFunction()>
+    <h2 id ="playerid"></h2>
+    <p id="messages"></p>
+    <table class="tic-tac-toe">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+</body>
+</html>
